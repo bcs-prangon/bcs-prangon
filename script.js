@@ -30,6 +30,7 @@ const EXAMS = [
     },
 ];
 
+// Mock previous exams data
 const PREVIOUS_EXAMS = [
     {
         id: 3,
@@ -59,8 +60,6 @@ const previousExamsList = document.getElementById('previousExamsList');
 const currentExamsBtn = document.getElementById('currentExamsBtn');
 const previousExamsBtn = document.getElementById('previousExamsBtn');
 const toast = document.getElementById('toast');
-
-
 
 // Show toast message
 function showToast(message, duration = 3000) {
@@ -129,9 +128,6 @@ function renderPreviousExams() {
 }
 
 // Handle navigation between current and previous exams
-
-// Handle navigation between current and previous exams
-
 currentExamsBtn.addEventListener('click', () => {
     examsList.classList.remove('hidden');
     previousExamsList.classList.add('hidden');
@@ -146,7 +142,6 @@ previousExamsBtn.addEventListener('click', () => {
     previousExamsBtn.classList.remove('btn-outline');
     renderPreviousExams();
 });
-
 
 // Handle login
 loginForm.addEventListener('submit', (e) => {
