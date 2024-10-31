@@ -36,7 +36,7 @@ const PREVIOUS_EXAMS = [
         id: 2,
         name: "Mathematics Final",
         topic: "Calculus",
-        Date: "2024-03-20",
+        date: "2024-03-20",
         examLink: "https://exam-platform.com/math-final",
         studyMaterials: "https://drive.google.com/drive/folders/math-materials",
         solution: "https://drive.google.com/drive/folders/math-solutions",
@@ -44,15 +44,16 @@ const PREVIOUS_EXAMS = [
     },
     {
         id: 1,
-        name: "Mathematics Final",
-        topic: "Calculus",
-        Date: "2024-03-20",
-        examLink: "https://exam-platform.com/math-final",
-        studyMaterials: "https://drive.google.com/drive/folders/math-materials",
-        solution: "https://drive.google.com/drive/folders/math-solutions",
-        solutionAvailable: true,
+        name: "Physics Midterm",
+        topic: "Mechanics",
+        date: "2024-03-15",
+        examLink: "https://exam-platform.com/physics-midterm",
+        studyMaterials: "https://drive.google.com/drive/folders/physics-materials",
+        solution: "",
+        solutionAvailable: false,
     }
 ];
+
 
 // DOM Elements
 const loginPage = document.getElementById('loginPage');
@@ -119,12 +120,17 @@ function renderPreviousExams() {
                     <p>Date: ${new Date(exam.date).toLocaleDateString()}</p>
                 </div>
                 <div class="exam-actions">
+                    <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn">
+                        Go to Exam
+                    </a>
                     <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                         Study Materials
                     </a>
-                    <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                        View Solution
-                    </a>
+                    ${exam.solutionAvailable ? `
+                        <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                            View Solution
+                        </a>
+                    ` : ''}
                 </div>
             </div>
         </div>
