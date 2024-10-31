@@ -56,6 +56,7 @@ const loginForm = document.getElementById('loginForm');
 const logoutBtn = document.getElementById('logoutBtn');
 const examsList = document.getElementById('examsList');
 const previousExamsList = document.getElementById('previousExamsList');
+const currentExamsBtn = document.getElementById('currentExamsBtn');
 const previousExamsBtn = document.getElementById('previousExamsBtn');
 const toast = document.getElementById('toast');
 
@@ -128,6 +129,9 @@ function renderPreviousExams() {
 }
 
 // Handle navigation between current and previous exams
+
+// Handle navigation between current and previous exams
+
 currentExamsBtn.addEventListener('click', () => {
     examsList.classList.remove('hidden');
     previousExamsList.classList.add('hidden');
