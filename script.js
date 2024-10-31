@@ -93,7 +93,7 @@ function renderExams() {
                 </div>
                 <div class="exam-actions">
                     <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn">
-                        Go to Exam
+                        Take the Exam
                     </a>
                     <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                         Study Materials
@@ -121,7 +121,7 @@ function renderPreviousExams() {
                 </div>
                 <div class="exam-actions">
                     <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn">
-                        Go to Exam
+                        Attempt
                     </a>
                     <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                         Study Materials
