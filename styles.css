@@ -88,6 +88,15 @@ input {
     margin-bottom: 1.5rem;
 }
 
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-buttons .btn {
+    width: auto;
+}
+
 .header .btn {
     width: auto;
 }
