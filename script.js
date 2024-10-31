@@ -7,7 +7,7 @@ const USERS = [
 // Mock exam data
 const EXAMS = [
     {
-        id: 1,
+        id: 4,
         name: "Mathematics Final",
         topic: "Calculus",
         startTime: "2024-03-20T09:00",
@@ -18,7 +18,7 @@ const EXAMS = [
         solutionAvailable: true,
     },
     {
-        id: 2,
+        id: 3,
         name: "Physics Midterm",
         topic: "Mechanics",
         startTime: "2024-03-25T14:00",
@@ -33,20 +33,26 @@ const EXAMS = [
 // Mock previous exams data
 const PREVIOUS_EXAMS = [
     {
-        id: 3,
-        name: "Chemistry Final",
-        topic: "Organic Chemistry",
-        date: "2024-02-15",
-        studyMaterials: "https://drive.google.com/drive/folders/chem-materials",
-        solution: "https://drive.google.com/drive/folders/chem-solutions",
+        id: 2,
+        name: "Mathematics Final",
+        topic: "Calculus",
+        startTime: "2024-03-20T09:00",
+        endTime: "2024-03-20T12:00",
+        examLink: "https://exam-platform.com/math-final",
+        studyMaterials: "https://drive.google.com/drive/folders/math-materials",
+        solution: "https://drive.google.com/drive/folders/math-solutions",
+        solutionAvailable: true,
     },
     {
-        id: 4,
-        name: "Biology Midterm",
-        topic: "Cell Biology",
-        date: "2024-02-01",
-        studyMaterials: "https://drive.google.com/drive/folders/bio-materials",
-        solution: "https://drive.google.com/drive/folders/bio-solutions",
+        id: 1,
+        name: "Mathematics Final",
+        topic: "Calculus",
+        startTime: "2024-03-20T09:00",
+        endTime: "2024-03-20T12:00",
+        examLink: "https://exam-platform.com/math-final",
+        studyMaterials: "https://drive.google.com/drive/folders/math-materials",
+        solution: "https://drive.google.com/drive/folders/math-solutions",
+        solutionAvailable: true,
     }
 ];
 
