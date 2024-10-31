@@ -30,13 +30,36 @@ const EXAMS = [
     },
 ];
 
+const PREVIOUS_EXAMS = [
+    {
+        id: 3,
+        name: "Chemistry Final",
+        topic: "Organic Chemistry",
+        date: "2024-02-15",
+        studyMaterials: "https://drive.google.com/drive/folders/chem-materials",
+        solution: "https://drive.google.com/drive/folders/chem-solutions",
+    },
+    {
+        id: 4,
+        name: "Biology Midterm",
+        topic: "Cell Biology",
+        date: "2024-02-01",
+        studyMaterials: "https://drive.google.com/drive/folders/bio-materials",
+        solution: "https://drive.google.com/drive/folders/bio-solutions",
+    }
+];
+
 // DOM Elements
 const loginPage = document.getElementById('loginPage');
 const schedulePage = document.getElementById('schedulePage');
 const loginForm = document.getElementById('loginForm');
 const logoutBtn = document.getElementById('logoutBtn');
 const examsList = document.getElementById('examsList');
+const previousExamsList = document.getElementById('previousExamsList');
+const previousExamsBtn = document.getElementById('previousExamsBtn');
 const toast = document.getElementById('toast');
+
+
 
 // Show toast message
 function showToast(message, duration = 3000) {
@@ -81,6 +104,46 @@ function renderExams() {
     `).join('');
 }
 
+// Render previous exams list
+function renderPreviousExams() {
+    previousExamsList.innerHTML = PREVIOUS_EXAMS.map(exam => `
+        <div class="exam-card">
+            <div class="exam-card-content">
+                <div class="exam-info">
+                    <h2>${exam.name}</h2>
+                    <p>Topic: ${exam.topic}</p>
+                    <p>Date: ${new Date(exam.date).toLocaleDateString()}</p>
+                </div>
+                <div class="exam-actions">
+                    <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        Study Materials
+                    </a>
+                    <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        View Solution
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Handle navigation between current and previous exams
+currentExamsBtn.addEventListener('click', () => {
+    examsList.classList.remove('hidden');
+    previousExamsList.classList.add('hidden');
+    currentExamsBtn.classList.remove('btn-outline');
+    previousExamsBtn.classList.add('btn-outline');
+});
+
+previousExamsBtn.addEventListener('click', () => {
+    examsList.classList.add('hidden');
+    previousExamsList.classList.remove('hidden');
+    currentExamsBtn.classList.add('btn-outline');
+    previousExamsBtn.classList.remove('btn-outline');
+    renderPreviousExams();
+});
+
+
 // Handle login
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -114,5 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loginPage.classList.add('hidden');
         schedulePage.classList.remove('hidden');
         renderExams();
+        renderPreviousExams();
     }
 });
