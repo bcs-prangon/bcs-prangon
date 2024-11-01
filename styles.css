@@ -141,6 +141,12 @@ body {
     background-color: var(--primary-hover);
 }
 
+.btn.active {
+    background-color: #4b5563; /* A slightly different color to show it's active */
+    color: white;
+}
+
+
 /* Navbar Styles */
 .navbar {
     background: var(--card-bg);
