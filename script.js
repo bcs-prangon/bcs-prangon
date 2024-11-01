@@ -370,6 +370,12 @@ function renderPreviousExams() {
     `).join('');
 }
 
+function toggleNav() {
+    const navButtons = document.querySelector('.nav-buttons');
+    navButtons.classList.toggle('show');
+}
+
+
 // Handle navigation between current and previous exams
 currentExamsBtn.addEventListener('click', () => {
     examsList.classList.remove('hidden');
@@ -422,3 +428,4 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPreviousExams();
     }
 });
+
