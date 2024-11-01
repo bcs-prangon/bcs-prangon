@@ -5,60 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCS Prangon</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="loginPage" class="page">
-        <div class="container">
-            <div class="card login-card">
-                <div class="logo">BCS Prangon</div>
-                <h1>Welcome Back</h1>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <input type="text" id="studentId" required>
-                            <label for="studentId">Student ID</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <input type="password" id="password" required>
-                            <label for="password">Password</label>
-                            <button type="button" id="togglePassword" class="toggle-password">
-                                <i class="eye-icon"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
+    <div class="container">
+        <header class="header">
+            <h1>BCS Prangon</h1>
+            <div class="nav-buttons">
+                <button class="btn btn-outline" onclick="showAddExamForm()">Add Exam</button>
             </div>
+        </header>
+        
+        <div id="add-exam-form" class="card hidden">
+            <h1>Add New Exam</h1>
+            <div class="form-group">
+                <input type="text" id="examName" placeholder="Exam Name">
+            </div>
+            <div class="form-group">
+                <input type="text" id="examTopic" placeholder="Topic">
+            </div>
+            <div class="form-group">
+                <input type="datetime-local" id="examStartTime">
+            </div>
+            <div class="form-group">
+                <input type="datetime-local" id="examEndTime">
+            </div>
+            <div class="form-group">
+                <input type="url" id="examLink" placeholder="Exam Link">
+            </div>
+            <div class="form-group">
+                <input type="url" id="materialsLink" placeholder="Study Materials Link">
+            </div>
+            <button class="btn" onclick="addExam()">Submit</button>
+        </div>
+
+        <div class="exams-grid" id="examsContainer">
+            <!-- Exam cards will be dynamically added here -->
         </div>
     </div>
 
-    <div id="schedulePage" class="page hidden">
-        <nav class="navbar">
-            <div class="container nav-container">
-                <div class="logo">BCS Prangon</div>
-                <button class="hamburger" id="hamburgerBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="nav-buttons" id="navButtons">
-                    <button id="currentExamsBtn" class="btn btn-nav active">Current Exams</button>
-                    <button id="previousExamsBtn" class="btn btn-nav">Previous Exams</button>
-                    <button id="logoutBtn" class="btn btn-nav">Logout</button>
-                </div>
-            </div>
-        </nav>
-        
-        <main class="container main-content">
-            <div id="examsList" class="exams-grid"></div>
-            <div id="previousExamsList" class="exams-grid hidden"></div>
-        </main>
-    </div>
+    <div id="toast" class="toast hidden">Exam added successfully!</div>
 
-    <div id="toast" class="toast hidden"></div>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
