@@ -296,81 +296,42 @@ const previousExamsList = document.getElementById('previousExamsList');
 const currentExamsBtn = document.getElementById('currentExamsBtn');
 const previousExamsBtn = document.getElementById('previousExamsBtn');
 const toast = document.getElementById('toast');
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const navButtons = document.getElementById('navButtons');
-const togglePassword = document.getElementById('togglePassword');
-const passwordInput = document.getElementById('password');
 
-// Toggle password visibility
-togglePassword.addEventListener('click', () => {
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
-    togglePassword.classList.toggle('show');
-});
-
-// Toggle mobile menu
-hamburgerBtn.addEventListener('click', () => {
-    navButtons.classList.toggle('show');
-    hamburgerBtn.classList.toggle('active');
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburgerBtn.contains(e.target) && !navButtons.contains(e.target)) {
-        navButtons.classList.remove('show');
-        hamburgerBtn.classList.remove('active');
-    }
-});
-
-// Show toast message with animation
+// Show toast message
 function showToast(message, duration = 3000) {
     toast.textContent = message;
     toast.classList.remove('hidden');
-    toast.style.animation = 'none';
-    toast.offsetHeight; // Trigger reflow
-    toast.style.animation = 'slideIn 0.3s ease-out';
-    
     setTimeout(() => {
-        toast.style.animation = 'slideOut 0.3s ease-out forwards';
-        setTimeout(() => {
-            toast.classList.add('hidden');
-        }, 300);
+        toast.classList.add('hidden');
     }, duration);
 }
 
 // Format date
 function formatDate(dateString) {
-    if (!dateString) return '';
-    return new Date(dateString).toLocaleString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
+    return new Date(dateString).toLocaleString();
 }
 
-// Render exams with animation
+// Render exams list
+// Render exams list
 function renderExams() {
-    examsList.innerHTML = EXAMS.map((exam, index) => `
-        <div class="exam-card" style="animation: slideIn 0.3s ease-out ${index * 0.1}s forwards">
+    examsList.innerHTML = EXAMS.map(exam => `
+        <div class="exam-card">
             <div class="exam-card-content">
                 <div class="exam-info">
                     <h2>${exam.name}</h2>
-                    <p><strong>Topic:</strong> ${exam.topic}</p>
-                    ${exam.startTime ? `<p><strong>Start:</strong> ${formatDate(exam.startTime)}</p>` : ''}
-                    ${exam.endTime ? `<p><strong>End:</strong> ${formatDate(exam.endTime)}</p>` : ''}
+                    <p>Topic: ${exam.topic}</p>
+                    ${exam.startTime ? `<p>Start: ${formatDate(exam.startTime)}</p>` : ''}
+                    ${exam.endTime ? `<p>End: ${formatDate(exam.endTime)}</p>` : ''}
                 </div>
                 <div class="exam-actions">
-                    <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        Take Exam
+                    <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn">
+                        Take the Exam
                     </a>
-                    <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn">
+                    <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                         Study Materials
                     </a>
                     ${exam.solutionAvailable ? `
-                        <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn">
+                        <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                             View Solution
                         </a>
                     ` : ''}
@@ -380,25 +341,26 @@ function renderExams() {
     `).join('');
 }
 
-// Render previous exams with animation
+
+// Render previous exams list
 function renderPreviousExams() {
-    previousExamsList.innerHTML = PREVIOUS_EXAMS.map((exam, index) => `
-        <div class="exam-card" style="animation: slideIn 0.3s ease-out ${index * 0.1}s forwards">
+    previousExamsList.innerHTML = PREVIOUS_EXAMS.map(exam => `
+        <div class="exam-card">
             <div class="exam-card-content">
                 <div class="exam-info">
                     <h2>${exam.name}</h2>
-                    <p><strong>Topic:</strong> ${exam.topic}</p>
-                    <p><strong>Date:</strong> ${formatDate(exam.date)}</p>
+                    <p>Topic: ${exam.topic}</p>
+                    <p>Date: ${new Date(exam.date).toLocaleDateString()}</p>
                 </div>
                 <div class="exam-actions">
-                    <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn">
                         Attempt
                     </a>
-                    <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn">
+                    <a href="${exam.studyMaterials}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                         Study Materials
                     </a>
                     ${exam.solutionAvailable ? `
-                        <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn">
+                        <a href="${exam.solution}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                             View Solution
                         </a>
                     ` : ''}
@@ -412,19 +374,17 @@ function renderPreviousExams() {
 currentExamsBtn.addEventListener('click', () => {
     examsList.classList.remove('hidden');
     previousExamsList.classList.add('hidden');
-    currentExamsBtn.classList.add('active');
-    previousExamsBtn.classList.remove('active');
-    renderExams();
+    currentExamsBtn.classList.remove('btn-outline');
+    previousExamsBtn.classList.add('btn-outline');
 });
 
 previousExamsBtn.addEventListener('click', () => {
     examsList.classList.add('hidden');
     previousExamsList.classList.remove('hidden');
-    currentExamsBtn.classList.remove('active');
-    previousExamsBtn.classList.add('active');
+    currentExamsBtn.classList.add('btn-outline');
+    previousExamsBtn.classList.remove('btn-outline');
     renderPreviousExams();
 });
-
 
 // Handle login
 loginForm.addEventListener('submit', (e) => {
