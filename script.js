@@ -273,15 +273,15 @@ const EXAMS = [
 // Mock previous exams data
 const PREVIOUS_EXAMS = [
     {
-        id: 2,
-        name: "Mathematics Final",
-        topic: "Calculus",
-        date: "2024-03-20",
-        examLink: "https://exam-platform.com/math-final",
-        studyMaterials: "https://drive.google.com/drive/folders/math-materials",
-        solution: "https://drive.google.com/drive/folders/math-solutions",
-        solutionAvailable: true,
-    },
+        id: 1,
+        name: "Monthly Exam October",
+        topic: "Monthly Exam October",
+        date: "2024-10-24",
+        examLink: "https://script.google.com/macros/s/AKfycbyioAk5ogc13AKDX1SKv8CDZs5lSqkPpsAy74gf3WHHUuLW5Ew_z_qAQNK4EOxRm2KolA/exec",
+        studyMaterials: "https://drive.google.com/drive/folders/1mzZxSlkqSMb9dMhS3SPj1gufk8xlMLSH",
+        solution: "https://drive.google.com/file/d/11Ai9q5ap9ZvvFlvgYzDzeqgNVhXHan7k",
+        solutionAvailable: true,
+    },
 
 ];
 
