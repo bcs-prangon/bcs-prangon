@@ -257,26 +257,16 @@ const USERS = [
 const EXAMS = [
     {
         id: 4,
-        name: "Mathematics Final",
-        topic: "Calculus",
-        startTime: "2024-03-20T09:00",
-        endTime: "2024-03-20T12:00",
-        examLink: "https://exam-platform.com/math-final",
-        studyMaterials: "https://drive.google.com/drive/folders/math-materials",
-        solution: "https://drive.google.com/drive/folders/math-solutions",
-        solutionAvailable: true,
-    },
-    {
-        id: 3,
-        name: "Physics Midterm",
-        topic: "Mechanics",
-        startTime: "2024-03-25T14:00",
-        endTime: "2024-03-25T16:00",
-        examLink: "https://exam-platform.com/physics-midterm",
-        studyMaterials: "https://drive.google.com/drive/folders/physics-materials",
+        name: "Week 13 - গণিত প্র্যাক্টিস পরীক্ষা",
+        topic: "পাটিগণিত-৪: গণিত-লাভ ক্ষতি",
+        startTime: "",
+        endTime: "",
+        examLink: "https://script.google.com/macros/s/AKfycbz_pEXEAGr9OEruYUhZQdjnOUYJInuZB7NDS9rXS2IG_v6e8clF2kps0NGMolLGqUL_WA/exec",
+        studyMaterials: "https://drive.google.com/file/d/1fiHN35d6Q3nyt8GtQWnLHjP1-gumkwRq/view?usp=drive_link",
         solution: "",
         solutionAvailable: false,
     },
+
 ];
 
 // Mock previous exams data
@@ -291,16 +281,7 @@ const PREVIOUS_EXAMS = [
         solution: "https://drive.google.com/drive/folders/math-solutions",
         solutionAvailable: true,
     },
-    {
-        id: 1,
-        name: "Physics Midterm",
-        topic: "Mechanics",
-        date: "2024-03-15",
-        examLink: "https://exam-platform.com/physics-midterm",
-        studyMaterials: "https://drive.google.com/drive/folders/physics-materials",
-        solution: "",
-        solutionAvailable: false,
-    }
+
 ];
 
 
