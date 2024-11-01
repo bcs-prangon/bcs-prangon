@@ -7,44 +7,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>BCS Prangon</h1>
-            <div class="nav-buttons">
-                <button class="btn btn-outline" onclick="showAddExamForm()">Add Exam</button>
+    <div id="loginPage" class="page">
+        <div class="container">
+            <div class="card">
+                <h1>Log in to BCS Prangon</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="studentId" placeholder="Student ID" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
             </div>
-        </header>
-        
-        <div id="add-exam-form" class="card hidden">
-            <h1>Add New Exam</h1>
-            <div class="form-group">
-                <input type="text" id="examName" placeholder="Exam Name">
-            </div>
-            <div class="form-group">
-                <input type="text" id="examTopic" placeholder="Topic">
-            </div>
-            <div class="form-group">
-                <input type="datetime-local" id="examStartTime">
-            </div>
-            <div class="form-group">
-                <input type="datetime-local" id="examEndTime">
-            </div>
-            <div class="form-group">
-                <input type="url" id="examLink" placeholder="Exam Link">
-            </div>
-            <div class="form-group">
-                <input type="url" id="materialsLink" placeholder="Study Materials Link">
-            </div>
-            <button class="btn" onclick="addExam()">Submit</button>
-        </div>
-
-        <div class="exams-grid" id="examsContainer">
-            <!-- Exam cards will be dynamically added here -->
         </div>
     </div>
 
-    <div id="toast" class="toast hidden">Exam added successfully!</div>
+    <div id="schedulePage" class="page hidden">
+        <div class="container">
+            <div class="header">
+                <h1>BCS Prangon</h1>
+                <div class="nav-buttons">
+                    <button id="currentExamsBtn" class="btn btn-outline">Current Exams</button>
+                    <button id="previousExamsBtn" class="btn btn-outline">Previous Exams</button>
+                    <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                </div>
+            </div>
+            <div id="examsList" class="exams-grid"></div>
+            <div id="previousExamsList" class="exams-grid hidden"></div>
+        </div>
+    </div>
 
-    <script src="scripts.js"></script>
+    <div id="toast" class="toast hidden"></div>
+    <script src="script.js"></script>
 </body>
 </html>
