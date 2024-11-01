@@ -302,41 +302,14 @@ body {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-buttons {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--card-bg);
-        padding: 1rem;
-        flex-direction: column;
-        box-shadow: var(--shadow-sm);
-    }
-
-    .nav-buttons.show {
-        display: flex;
-    }
-
-    .exam-card-content {
-        flex-direction: column;
-    }
-
-    .exam-actions {
-        justify-content: flex-start;
-    }
-}
 
 /* Styles for mobile screens */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column-reverse; /* Moves buttons to the top */
         align-items: flex-start;
+        gap: 1rem;
     }
 
     .nav-buttons {
@@ -350,6 +323,17 @@ body {
         width: 100%;
         text-align: center;
         padding: 0.75rem;
+    }
+
+    /* Optional: Adjusts layout if a menu icon is used */
+    .menu-icon {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #1f2937;
+        cursor: pointer;
+        display: block;
+        align-self: flex-end; /* Aligns menu icon to the right */
     }
 }
 
