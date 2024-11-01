@@ -5,38 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCS Prangon</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="loginPage" class="page">
         <div class="container">
-            <div class="card">
-                <h1>Log in to BCS Prangon</h1>
+            <div class="card login-card">
+                <div class="logo">BCS Prangon</div>
+                <h1>Welcome Back</h1>
                 <form id="loginForm">
                     <div class="form-group">
-                        <input type="text" id="studentId" placeholder="Student ID" required>
+                        <div class="input-wrapper">
+                            <input type="text" id="studentId" required>
+                            <label for="studentId">Student ID</label>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="password" id="password" placeholder="Password" required>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" required>
+                            <label for="password">Password</label>
+                            <button type="button" id="togglePassword" class="toggle-password">
+                                <i class="eye-icon"></i>
+                            </button>
+                        </div>
                     </div>
-                    <button type="submit" class="btn">Login</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </div>
     </div>
 
     <div id="schedulePage" class="page hidden">
-        <div class="container">
-            <div class="header">
-                <h1>BCS Prangon</h1>
-                <div class="nav-buttons">
-                    <button id="currentExamsBtn" class="btn btn-outline">Current Exams</button>
-                    <button id="previousExamsBtn" class="btn btn-outline">Previous Exams</button>
-                    <button id="logoutBtn" class="btn btn-outline">Logout</button>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">BCS Prangon</div>
+                <button class="hamburger" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-buttons" id="navButtons">
+                    <button id="currentExamsBtn" class="btn btn-nav active">Current Exams</button>
+                    <button id="previousExamsBtn" class="btn btn-nav">Previous Exams</button>
+                    <button id="logoutBtn" class="btn btn-nav">Logout</button>
                 </div>
             </div>
+        </nav>
+        
+        <main class="container main-content">
             <div id="examsList" class="exams-grid"></div>
             <div id="previousExamsList" class="exams-grid hidden"></div>
-        </div>
+        </main>
     </div>
 
     <div id="toast" class="toast hidden"></div>
