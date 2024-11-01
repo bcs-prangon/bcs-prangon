@@ -312,6 +312,7 @@ function formatDate(dateString) {
 }
 
 // Render exams list
+// Render exams list
 function renderExams() {
     examsList.innerHTML = EXAMS.map(exam => `
         <div class="exam-card">
@@ -319,8 +320,8 @@ function renderExams() {
                 <div class="exam-info">
                     <h2>${exam.name}</h2>
                     <p>Topic: ${exam.topic}</p>
-                    <p>Start: ${formatDate(exam.startTime)}</p>
-                    <p>End: ${formatDate(exam.endTime)}</p>
+                    ${exam.startTime ? `<p>Start: ${formatDate(exam.startTime)}</p>` : ''}
+                    ${exam.endTime ? `<p>End: ${formatDate(exam.endTime)}</p>` : ''}
                 </div>
                 <div class="exam-actions">
                     <a href="${exam.examLink}" target="_blank" rel="noopener noreferrer" class="btn">
@@ -339,6 +340,7 @@ function renderExams() {
         </div>
     `).join('');
 }
+
 
 // Render previous exams list
 function renderPreviousExams() {
